@@ -21,5 +21,5 @@ def signin():
 
 @adminAPI.route('/home')
 def home():
-    result = admin0.callAdminInfo()
-    return render_template('home.html')
+    result = admin0.getAdminInfo()
+    return render_template('home.html',adminInfo=result)
