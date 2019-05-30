@@ -9,5 +9,5 @@ class ConnectDB():
     
         self.mongo_url = 'mongodb+srv://'+ self.user_doc["MongoID"] + ':'+ self.user_doc['MongoPassword'] + self.user_doc["MongoURL"]
         self.client = pymongo.MongoClient(self.mongo_url)
-        self.db = pymongo.database.Database(self.client, 'Cluster0')
+        self.db = pymongo.database.Database(self.client, 'Portfolio')
 
