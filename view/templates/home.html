@@ -1,55 +1,91 @@
 {% extends "base.html" %}
 {% block  content %}
 
-<div class="first" id="text" style=" height:500px; border:1px solid red;  position: static; left:0;">
-    <h1> About me </h1>
+
+
+
+<div class="first-div" id="first-text" >
+    <h1> About me </h1>     
 </div>
 
 
-<div class="second" id="text2" style=" height:500px; border:1px solid green;  position: static; right: 0;">
-    <section> <h1>Developer</h1>
-        <P>But it suits him for now to be perceived as fighting the President rather than his fellow Democrats -- since any such bouts would simply elevate hopefuls who currently trail him.
-        A continuing confrontation with an angry, erratic President -- and Trump's odd kinship with foreign dictators -- helps flesh out one of Biden's foundational campaign pillars that the commander-in-chief is unfit to serve a second term.
-        There are risks for Biden in attacking Trump. Any sign that he is behaving like a nominee eight months before first nominating contests would be pounced upon by his Democratic foes.
-        In a party animated by debate over economic, social and health care policy, he'd also be wise to spend time on the issues that most liberal voters care about most.</P>
-    </section></div>
+<div class="second-div" id="second-text">
+<section> 
+    <h1>Developer</h1>
+    <P>But it suits him for now to be perceived as fighting the President rather than his fellow Democrats -- since any such bouts would simply elevate hopefuls who currently trail him.
+A continuing confrontation with an angry, erratic President -- and Trump's odd kinship with foreign dictators -- helps flesh out one of Biden's foundational campaign pillars that the commander-in-chief is unfit to serve a second term.
+There are risks for Biden in attacking Trump. Any sign that he is behaving like a nominee eight months before first nominating contests would be pounced upon by his Democratic foes.
+In a party animated by debate over economic, social and health care policy, he'd also be wise to spend time on the issues that most liberal voters care about most.</P>
+</section>
+</div>
 
 
-<div class="skills" id="ski" style=" text-align: center;  border:1px solid blue; position:static; height:700px "> <h1>Skills</h1>
-    <div id="lan">Launage</div>
-    <div id="web">Web Skills</div>
-    <div id="data">Database</div>
-    
+
+
+
+<div class="third-div" id="ski" > 
+        <h1>Skills</h1>
+    <div id="launage">Launage</div>
+    <div id="webskills">Web Skills</div>
+    <div id="database">Database</div>
     <div id="etc">Etc</div>
-    
+
 </div>
 
 
 
-<div  id="pro" style=" text-align: center; border:1px solid yellow; position: static; height:1500px"> <h1>Project</h1>
-    <div class="container"style=" width:1200px; height:400px; margin:0 auto; border:1px solid black;">
+
+
+<div class="project-div"> 
+    <h1>Project</h1>
+    <div id="sub-project">
         <div class="row">
-            <div class="col" style="display: inline-block;
-                float: left;
-                width: 50%;
-                height: 400px;
-                border: 1px solid blue;"><img src="static/src/com.jpeg" style=" top:0; left: 0;
-                    width: 100%;
-                    height: 100%;"> </div>
             
-            <div class="cols" style="display: inline-block;
-                float: left;
-                width: 49.5%;
-                height: 400px;
-                border: 1px solid blue;"> Sia fansite
+            <div class="col1">
+                <img src="static/src/hi.jpeg" style=" top:0; left: 0; width: 100%; height: 100%;"> 
+            </div> 
+    
+            <div class="col2" >
+                Sia fansite
                 개발기간 :2018.08.10~ 2018.11.30
-                React + Redux + Node.js(Koa) + MongoDB를 이용하여 로그인 기능이 구현된 간단한 SPA 팬사이트.</div>
+                React + Redux + Node.js(Koa) + MongoDB를 이용하여 로그인 기능이 구현된 간단한 SPA 팬사이트.
+            </div> 
+        
         </div>
     </div>
+
+
+    <div id="sub-project">
+        <div class="row">
+            
+            <div class="col1">
+                <img src="static/src/hi.jpeg" style=" top:0; left: 0; width: 100%; height: 100%;"> 
+            </div> 
     
+            <div class="col2" >
+                Sia fansite
+                개발기간 :2018.08.10~ 2018.11.30
+                React + Redux + Node.js(Koa) + MongoDB를 이용하여 로그인 기능이 구현된 간단한 SPA 팬사이트.
+            </div> 
+        
+        </div>
+    </div>
+
+    <div id="sub-project">
+        <div class="row">
+            
+            <div class="col1">
+                <img src="static/src/hi.jpeg" style=" top:0; left: 0; width: 100%; height: 100%;"> 
+            </div> 
     
-    <div  style="width:1200px; height:400px; margin:0 auto; border:1px solid black;" ></div>
-    <div  style="width:1200px; height:400px; margin:0 auto; border:1px  solid black;" ></div>
-</div>
+            <div class="col2" >
+                Sia fansite
+                개발기간 :2018.08.10~ 2018.11.30
+                React + Redux + Node.js(Koa) + MongoDB를 이용하여 로그인 기능이 구현된 간단한 SPA 팬사이트.
+            </div> 
+        
+        </div>
+    </div>
+
 
 {% endblock %}
