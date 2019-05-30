@@ -15,3 +15,7 @@ class Admin():
             return True
         else:
             return False
+
+    def callAdminInfo(self):
+        result = self.admin0.find({})
+        return result

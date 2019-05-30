@@ -18,3 +18,8 @@ def signin():
             admin0.adminAuthentication(request.form.to_dict(flat='true'))
             return render_template('welcome.html', info=session['adminEmail'] )
         return render_template('welcome.html', info="관리자 계정으로 로그인 된 상태입니다.")
+
+@adminAPI.route('/home')
+def home():
+    result = admin0.callAdminInfo()
+    return render_template('home.html')
