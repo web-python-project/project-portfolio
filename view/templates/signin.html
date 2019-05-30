@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 {% block  content %}
     <form action=./signin method="POST">
+    일반 계정:
 	<input type ="email" name="userEmail"/>
 	<input type = "password" name="userPassword">
 	<input type = "submit" value="signin">
 	
-    </form>	
+    </form>
+
+    <br>
+
+    <form action=./adminsignin method="POST">
+    관리자 계정:
+    <input type ="email" name="adminEmail"/>
+    <input type = "password" name="adminPassword">
+    <input type = "submit" value="adminsignin">
+            
+    </form>
 {% endblock %}

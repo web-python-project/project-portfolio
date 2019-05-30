@@ -43,4 +43,8 @@ def logout():
     if 'userEmail' in session:
         session.pop('userEmail')
         return redirect(url_for('userAPI.signin'))
+    if 'adminEmail' in session:
+        session.pop('adminEmail')
+        return redirect(url_for('userAPI.signin'))
+
     return redirect(url_for('userAPI.signin'))
