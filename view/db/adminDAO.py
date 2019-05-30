@@ -16,6 +16,9 @@ class Admin():
         else:
             return False
 
-    def callAdminInfo(self):
-        result = self.admin0.find({})
-        return result
+    def getAdminInfo(self):
+        try:
+            result = self.admin0.find({})
+            return result
+        except:
+            return False
