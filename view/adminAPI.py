@@ -1,10 +1,12 @@
 from flask import Blueprint,request, render_template, session, redirect, url_for
-from .db import adminDAO, mongo_connection
+from .db import adminDAO, mongo_connection, projectDAO
 
 db_connection = mongo_connection.ConnectDB().db
 admin0 = adminDAO.Admin(db_connection)
+proj0 = projectDAO.Project(db_connection)
 
 adminAPI =  Blueprint('adminAPI',__name__, template_folder='templates')
+projAPI =  Blueprint('projAPI',__name__, template_folder='templates')
 
 @adminAPI.route('/adminsignin', methods=['GET', 'POST'])
 def signin():
@@ -22,4 +24,5 @@ def signin():
 @adminAPI.route('/home')
 def home():
     result = admin0.getAdminInfo()
-    return render_template('home.html',adminInfo=result)
+    result_pj = proj0.getAllProject()
+    return render_template('home.html',adminInfo=result, projInfo=result_pj)
