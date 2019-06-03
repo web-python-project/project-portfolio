@@ -29,7 +29,7 @@
 </div>
 {% endfor %}
 
-<div class="project-div">
+<div class="project-div" id = "project-container">
     <h1>Project</h1>
     
     {%for i in projInfo%}
@@ -45,7 +45,7 @@
                 개발기간 : {{i["date"]}}<br>
                 role: {{i["position"]}}<br>
                 {{i["description"]}}<br>
-                깃허브 링크 : {{i["gitLink"]}}<br>
+                <a href={{i["gitLink"]}} > 깃허브 링크 Click </a><br>
             </div>
             
         </div>
