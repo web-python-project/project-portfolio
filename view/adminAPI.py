@@ -2,6 +2,7 @@ from flask import Blueprint,request, render_template, session, redirect, url_for
 from .db import adminDAO, mongo_connection, projectDAO
 
 db_connection = mongo_connection.ConnectDB().db
+
 admin0 = adminDAO.Admin(db_connection)
 proj0 = projectDAO.Project(db_connection)
 
