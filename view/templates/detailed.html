@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block  content %}
+
+<div class="project-div" id = "project-container">
+    <br>
+    <br>
+    <h1>Project</h1>
+    
+    <div id="sub-project" >
+        <a herf ="/view/templates/detail.html">
+        <div class="row">
+            {%for i in projInfo%}
+
+            <div class="col1">
+                <img src= {{i["test_img"]}} style=" top:0; left: 0; width: 100%; height: 100%;">
+            </div>
+            <div class="col2">
+                <div></div>
+                <h1>{{i["title"]}}</h1><br>
+                개발기간 : {{i["date"]}}<br>
+                role: {{i["position"]}}<br>
+                {{i["description"]}}<br>
+                <a href={{i["gitLink"]}} >깃허브 링크 Click </a><br>
+            </div>
+            {% endfor %}
+        </div>
+        </a>
+    </div>
+    <br>
+    <br>
+</div>
+{% endblock %}
