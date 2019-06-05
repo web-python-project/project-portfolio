@@ -16,4 +16,3 @@ def projDetailed():
         result_comm = comm0.getAllComments(index)
 
     return render_template('detailed.html',projInfo=result_pj, commentInfo =result_comm)
-
