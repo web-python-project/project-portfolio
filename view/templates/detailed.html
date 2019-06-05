@@ -37,8 +37,14 @@
 
 <div>
     <h3>Comments</h3>
+    {% for i in commentInfo %}
     <div>
+        아이디: {{i["commentEmail"]}}     날짜 : {{i["date"]}}  추천 : {{i["like"]}}<br>
+        
+        내용: {{i["contents"]}}<br>
+        <br>
     </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

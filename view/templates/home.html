@@ -5,32 +5,38 @@
 <div class="first-div" id="first-text" >
     <br>
     <br>
-    <h1> About me </h1>     
+    <h1> About me </h1>
 </div>
 
 
 
 <div class="second-div" id="second-text">
-<section> 
-    <h1>{{i["position"]}}</h1>
-    <P>{{i["introduce"]}}
-    </P>
-</section>
+    <section>
+        <h1>{{i["position"]}}</h1>
+        <P>{{i["introduce"]}}
+        </P>
+    </section>
 </div>
 
 
-
-<div class="third-div" id="ski" > 
-    <br>
-    <br>    
-    <h1>Skills</h1>
-    <div id="launage">Launage</div>
+<div class="third-div" id="ski" >
     <br>
     <br>
-    <div id="webskills">Web Skills</div>
-    <div id="database">Database</div>
-    <div id="etc">Etc</div>
-
+    <h1>Skills</h1></br>
+    
+    {% with language = i["language"]%}
+    <div id="launage">Launage</div></br>
+    {% for skill in language %}
+    <b>{{skill[0]}} </b> {{skill[1]}} <br>
+    {% endfor %}
+    {% endwith %}
+    
+    <br>
+    <br>
+    <div id="webskills">Web Skills</div></br>
+    <div id="database">Database</div></br>
+    <div id="etc">Etc</div></br>
+    
 </div>
 {% endfor %}
 
@@ -47,28 +53,28 @@
             <div class="col1">
                 {%with a = i.get("image")%}
                 <img src= {{a[0]}} style=" top:0; left: 0; width: 100%; height: 100%;">
-                {%endwith%}
-            </div>
+                    {%endwith%}
+                    </div>
             
             <div class="col2">
                 <h1>{{i["title"]}}</h1><br><br>
-
+                
                 <b>개발기간 : </b> {{i["date"]}}<br><br>
                 <b>role : </b> {{i["position"]}}<br><br>
                 <b>stack : </b>
                 {%with a = i.get("stack")%}
-                    {% for cnt in a %}
-                    {{cnt}} /
-                    {% endfor %}
+                {% for cnt in a %}
+                {{cnt}} /
+                {% endfor %}
                 {%endwith%}<br><br>
                 깃허브 링크 : <a href={{i["gitLink"]}} >Click</a><br>
                 simulator : <a href={{i["simulator"]}} >Click</a><br><br><br>
-                {{i["description"]}}<br><br>
+                {{i["description"]}}
                 
                 <form action=./detailed method="POST">
-]                <input type="hidden" name = "idx" value = {{loop.index0}} >
-                <input type = "submit" value="more..">
-                </form>
+                    <input type="hidden" name = "idx" value = {{loop.index0}} >
+                        <input type = "submit" value="more..">
+                            </form><br>
             </div>
             
         </div>
@@ -79,3 +85,4 @@
     {% endfor %}
 </div>
 {% endblock %}
+
