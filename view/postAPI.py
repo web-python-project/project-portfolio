@@ -1,12 +1,12 @@
 from flask import Blueprint, flash, session, render_template, jsonify, request, redirect, url_for
 
-from .db import mongo_connection, projectDAO
+from .db import  mongo_connection, postsDAO
 
 import time
 
 
 
-db_connection = mongo_connection.ConnectDB().db
+db_connection =  mongo_connection.ConnectDB().db
 
 posts = postsDAO.Posts(db_connection)
 
@@ -38,7 +38,7 @@ def post():
 
 			flash('You have to logged in')
 
-			return redirect(url_for('userAPI.signin'))
+			return redirect(url_for('adminAPI.signin'))
 
 
 
@@ -48,7 +48,7 @@ def post():
 
 			now = time.strftime("%Y-%m-%d %H:%M")
 
-			obj_id = posts.postCreate(dict_merge({"postAuthor":session["userEmail"],"postDate":now},request.form.to_dict(flat=True)))
+			obj_id = posts.postCreate(dict_merge({"postAuthor":session["userEmail"],"date":now},request.form.to_dict(flat=True)))
 
 			all_posts = posts.getAllposts()
 
@@ -58,7 +58,7 @@ def post():
 
 			flash('You have to logged in')
 
-			return redirect(url_for('userAPI.signin'))
+			return redirect(url_for('adminAPI.signin'))
 
 
 
@@ -72,13 +72,13 @@ def postUpdate():
 
 		posts.postUpdate(request.form.to_dict(flat=True))
 
-		return redirect(url_for('adminAPI.home'))
+		return redirect(url_for('postAPI.post'))
 
 	else:
 
 		flash('You have to logged in')
 
-		return redirect(url_for('userAPI.signin'))
+		return redirect(url_for('adminAPI.signin'))
 
 
 
@@ -96,4 +96,4 @@ def postRemove():
 
 		flash('You have to logged in')
 
-		return redirect(url_for('userAPI.signin'))
+		return redirect(url_for('adminAPI.signin'))
