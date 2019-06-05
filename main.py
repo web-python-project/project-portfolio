@@ -6,12 +6,15 @@ from view.API import commonAPI
 from view.userAPI import userAPI
 from view.adminAPI import adminAPI
 from view.postAPI import postAPI
+from view.projectAPI import projAPI
 
 app = Flask(__name__)
 app.register_blueprint(commonAPI)
 app.register_blueprint(userAPI)
 app.register_blueprint(adminAPI)
 app.register_blueprint(postAPI)
+app.register_blueprint(projAPI)
+
 app.secret_key = "111"
 
 if __name__ == '__main__':

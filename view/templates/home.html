@@ -3,6 +3,8 @@
 
 {%for i in adminInfo%}
 <div class="first-div" id="first-text" >
+    <br>
+    <br>
     <h1> About me </h1>     
 </div>
 
@@ -19,9 +21,12 @@
 
 
 <div class="third-div" id="ski" > 
-        <h1>Skills</h1>
+    <br>
+    <br>    
+    <h1>Skills</h1>
     <div id="launage">Launage</div>
-
+    <br>
+    <br>
     <div id="webskills">Web Skills</div>
     <div id="database">Database</div>
     <div id="etc">Etc</div>
@@ -30,6 +35,8 @@
 {% endfor %}
 
 <div class="project-div" id = "project-container">
+    <br>
+    <br>
     <h1>Project</h1>
      <button type="button" onclick="location.href='/post' ">add</button>
     {%for i in projInfo%}
@@ -37,24 +44,38 @@
     <div id="sub-project">
         
         <div class="row">
-            
             <div class="col1">
-                <img src= {{i["test_img"]}} style=" top:0; left: 0; width: 100%; height: 100%;">
+                {%with a = i.get("image")%}
+                <img src= {{a[0]}} style=" top:0; left: 0; width: 100%; height: 100%;">
+                {%endwith%}
             </div>
             
             <div class="col2">
-                <h1>{{i["title"]}}</h1><br>
-                개발기간 : {{i["date"]}}<br>
-                role: {{i["position"]}}<br>
-                {{i["description"]}}<br>
-                <a href={{i["gitLink"]}} > 깃허브 링크 Click </a><br>
+                <h1>{{i["title"]}}</h1><br><br>
+
+                <b>개발기간 : </b> {{i["date"]}}<br><br>
+                <b>role : </b> {{i["position"]}}<br><br>
+                <b>stack : </b>
+                {%with a = i.get("stack")%}
+                    {% for cnt in a %}
+                    {{cnt}} /
+                    {% endfor %}
+                {%endwith%}<br><br>
+                깃허브 링크 : <a href={{i["gitLink"]}} >Click</a><br>
+                simulator : <a href={{i["simulator"]}} >Click</a><br><br><br>
+                {{i["description"]}}<br><br>
+                
+                <form action=./detailed method="POST">
+]                <input type="hidden" name = "idx" value = {{loop.index0}} >
+                <input type = "submit" value="more..">
+                </form>
             </div>
             
         </div>
     </div>
+    
     <br>
     <br>
     {% endfor %}
-
 </div>
 {% endblock %}

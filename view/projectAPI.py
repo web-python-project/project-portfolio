@@ -97,3 +97,4 @@ def postRemove():
 		flash('You have to logged in')
 
 		return redirect(url_for('userAPI.signin'))
+

@@ -16,3 +16,10 @@ class Project():
             return result
         except:
             return False
+
+    def getOneProject(self,index):
+        try:
+            result = self.projects.find({"idx": {"$eq": index}})
+            return result
+        except:
+            return False
