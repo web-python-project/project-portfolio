@@ -1,7 +1,17 @@
 {% block admin %}
 {%for i in adminInfo%}
+<div class= "zero-div">
+    <header>
+        <div id="header">
+            <div id="content" class="container-max">
+                <h1>Project!</h1>
+                <p> Screendoor Screendoor Screendoor Screendoor Screendoor </p>
+            </div>
+        </div>
+    </header>
+</div>
 
-<div class="first-div" id="first-text" >
+<div class="first-div" id="first-text">
     <br>
     <br>
     <h1> About me </h1>
@@ -22,9 +32,9 @@
     
     {% with language = i["language"]%}
     <div id="launage">Launage</div></br>
-    {% for skill in language %}
-    <b>{{skill[0]}} </b> {{skill[1]}} <br>
-    {% endfor %}
+        {% for skill in language %}
+        <b>{{skill[0]}} </b> {{skill[1]}} <br>
+        {% endfor %}
     {% endwith %}
     
     <br>

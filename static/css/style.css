@@ -1,6 +1,10 @@
 
+html {
+    scroll-behavior: smooth;
+}
 body { margin :0;
     font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 .nav-container{
                 display: flex;
@@ -63,7 +67,7 @@ body { margin :0;
 
 
 header{
-            position:absolute; top:0; left:0;
+            top:0; left:0;
             width:100%;
             height: 100%;
             margin-top: 80px;
@@ -117,23 +121,27 @@ header{
 
 
 
-.zero-div { background-image:url('static/src/com.jpeg');
-            position: relative;
+.zero-div { 
+
+            position: static;
             width: 100%;
             height: 100%;}
 
 
-.first-div {height:500px;   
+.first-div {
+    height:500px;   
             border:1px solid red;  
             position: static; 
             left:0;  }
 
-#first-text h1{ text-align: center;
+#first-text h1{ 
+    text-align: center;
                 padding: 200px 100px;}
 
 
 
-.second-div {   height:500px;   
+.second-div {   
+    height:500px;   
                 border:1px solid green; 
                 position: static; 
                 right: 0;}
@@ -147,7 +155,8 @@ header{
                 
 
 
-.third-div {text-align: center;  
+.third-div {
+    text-align: center;  
             border:1px solid blue; 
             position:static; 
             height:700px;}
@@ -182,7 +191,8 @@ header{
     margin: 1.25em 0 0.2em;
     letter-spacing: -2px;}
 
-.project-div{text-align: center; 
+.project-div{
+    text-align: center; 
     overflow: hidden ;
     border:1px solid red;
     position: static;}
