@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    {% block admin %}
+        {%with adminInfo=adminInfo%}
+            {% include "homeAdminInfo.html" %}
+        {%endwith%}
+    {% endblock %}
+</div>
+
+<div>
+    {% block proj %}
+        {%with projInfo=projInfo %}
+            {% include "homeProjInfo.html" %}
+        {%endwith%}
+    {% endblock %}
+</div>
+
+{% endblock %}

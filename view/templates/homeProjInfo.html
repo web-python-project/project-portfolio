@@ -1,52 +1,13 @@
-{% extends "base.html" %}
-{% block  content %}
+{% block proj %}
 
-{%for i in adminInfo%}
-<div class="first-div" id="first-text" >
-    <br>
-    <br>
-    <h1> About me </h1>
-</div>
-
-
-
-<div class="second-div" id="second-text">
-    <section>
-        <h1>{{i["position"]}}</h1>
-        <P>{{i["introduce"]}}
-        </P>
-    </section>
-</div>
-
-
-<div class="third-div" id="ski" >
-    <br>
-    <br>
-    <h1>Skills</h1></br>
-    
-    {% with language = i["language"]%}
-    <div id="launage">Launage</div></br>
-    {% for skill in language %}
-    <b>{{skill[0]}} </b> {{skill[1]}} <br>
-    {% endfor %}
-    {% endwith %}
-    
-    <br>
-    <br>
-    <div id="webskills">Web Skills</div></br>
-    <div id="database">Database</div></br>
-    <div id="etc">Etc</div></br>
-    
-</div>
-{% endfor %}
 
 <div class="project-div" id = "project-container">
     <br>
     <br>
     <h1>Project</h1>
-    <button type="button" onclick="location.href='/post' ">add</button>
+     <button type="button" onclick="location.href='/post' ">add</button>
     {%for i in projInfo%}
-    
+
     <div id="sub-project">
         
         <div class="row">
@@ -85,3 +46,4 @@
     {% endfor %}
 </div>
 {% endblock %}
+
