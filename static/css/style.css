@@ -119,47 +119,50 @@ header{
     background-color: #891e1b;
 }
 
-
-
 .zero-div { 
-
             position: static;
             width: 100%;
             height: 100%;}
 
-
 .first-div {
-    height:500px;   
-            border:1px solid red;  
+    height: 500px;
+            border:3px solid red;  
             position: static; 
             left:0;  }
 
 #first-text h1{ 
     text-align: center;
-                padding: 200px 100px;}
+                padding: 100px 100px;}
 
+.col1_first_div{display: inline-block;
+    text-align: center;
+    float: left;
+    width: 30%;
+    height: 400px;
+    }
+
+.col2_first_div{display: inline-block;
+    text-align: center;
+    float: left;
+    width: 69.5%;
+    height: 400px;
+    }
 
 
 .second-div {   
-    height:500px;   
-                border:1px solid green; 
-                position: static; 
-                right: 0;}
-
-#second-text h1{text-align: center; 
-                padding: 100px; }
-#second-text p{ text-align: center; 
-                padding:100px; }
-
-
-                
+    height: 600px;
+    text-align: center;
+    border:3px solid green;}
+    
+#ski{
+    text-align: center;
+}
 
 
 .third-div {
-    text-align: center;  
-            border:1px solid blue; 
-            position:static; 
-            height:700px;}
+            border:1px solid palegreen; 
+            position:static; }
+
 
 
 #launage { font-family: "Exo 2","Helvetica Neue",Helvetica,sans-serif;
@@ -183,7 +186,6 @@ header{
     margin: 1.25em 0 0.2em;
     letter-spacing: -2px;}
 
-
 #etc { font-family: "Exo 2","Helvetica Neue",Helvetica,sans-serif;
     text-transform: uppercase;
     font-weight: 800;
@@ -197,7 +199,8 @@ header{
     border:1px solid red;
     position: static;}
 
-#project-div-comments-text{
+#project-div-comments{
+
     text-align: left; 
     border:1px solid yellow;}
 
@@ -205,11 +208,8 @@ header{
         text-align: center; }
 
 #sub-project{ width:1200px; 
-    height:400px; 
     margin:0 auto;
      border:1px solid black;}
-
-
 
 .col1{display: inline-block;
     float: left;

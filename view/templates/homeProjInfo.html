@@ -1,11 +1,12 @@
 {% block proj %}
 
-
 <div class="project-div" id = "project-container">
     <br>
     <br>
     <h1>Project</h1>
-     <button type="button" onclick="location.href='/post' ">add</button>
+    {% if session.adminEmail %}
+         <button type="button" onclick="location.href='/post' ">add</button>
+    {% endif %}
     {%for i in projInfo%}
 
     <div id="sub-project">
@@ -34,8 +35,8 @@
                 
                 <form action=./detailed method="POST">
                     <input type="hidden" name = "idx" value = {{loop.index0}} >
-                        <input type = "submit" value="more..">
-                            </form><br>
+                    <input type = "submit" value="more..">
+                </form><br>
             </div>
             
         </div>

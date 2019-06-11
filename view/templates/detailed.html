@@ -3,11 +3,11 @@
 
 <div class="project-div">
 
+    <div id="sub-project">
     {% for i in projInfo %}
-    <h1>{{i["title"]}} </h1><br>
 
-    <div id="sub-project-test" class = "sub-project-text">
-    
+        <h1>{{i["title"]}} </h1><br>
+
         {%with a = i.get("image")%}
             {% for cnt in a %}
                 <img src= {{cnt}} style=" top:0; left: 0; width: 100%; height: 100%;"> <br>
@@ -28,30 +28,20 @@
         simulator : <a href={{i["simulator"]}} >Click</a><br><br>
         {{i["description"]}}<br><br>
 
-        <div class="project-div-comments-text">
+        <div id="project-div-comments">
             <h3>Comments</h3>
             {% for i in commentInfo %}
             <div>
                 아이디: {{i["commentEmail"]}}     날짜 : {{i["date"]}}  추천 : {{i["like"]}}<br>
-                
                 내용: {{i["contents"]}}<br>
                 <br>
             </div>
             {% endfor %}
         </div>
-        
+    {% endfor %}
     </div>
     
-    
-    {% endfor %}
-
     <br>
     <br>
-    
-
-    
 </div>
-
-
-
 {% endblock %}

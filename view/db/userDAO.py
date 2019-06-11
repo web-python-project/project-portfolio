@@ -3,9 +3,7 @@ import pymongo
 class User():
     def __init__(self,db):
         self.users = pymongo.collection.Collection(db,'Users')
-    #self.users. #초기화
 
-    
     def userValidation(self, userDict):
         if self.users.find_one(userDict):
             return False
