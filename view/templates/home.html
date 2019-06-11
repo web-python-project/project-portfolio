@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div   style="scroll-behavior: smooth;">
+<div>
     <div>
         {%with adminInfo=adminInfo%}
             {% include "homeAdminInfo.html" %}
@@ -11,6 +11,15 @@
         {%with projInfo=projInfo %}
             {% include "homeProjInfo.html" %}
         {%endwith%}
+    </div>
+    
+    <div class="contact-div" id="cont">
+        <h1>Contact</h1>
+        {% for i in adminInfo%}
+        {{i}}
+        {% endfor %}
+
+        <h3>0603yang@naver.com</h3>
     </div>
 </div>
 

@@ -12,22 +12,24 @@
 </div>
 
 <div class="first-div" id="first-text">
-    <br>
-    <br>
-    <h1> About me </h1>
+    <div class="col1_first_div">
+        <br>
+        <br>
+        <h1> About me </h1>
+    </div>
+
+    <div class="col2_first_div">
+        <section>
+            <h1>{{i["position"]}}</h1>
+            <P>{{i["introduce"]}}</P>
+        </section>
+    </div>
 </div>
 
-<div class="second-div" id="second-text">
-    <section>
-        <h1>{{i["position"]}}</h1>
-        <P>{{i["introduce"]}}
-        </P>
-    </section>
-</div>
 
-<div class="third-div" id="ski" >
-    <br>
-    <br>
+<div class="second-div" id="ski">
+    <br><br>
+    <br><br>
     <h1>Skills</h1></br>
     
     {% with language = i["language"]%}
