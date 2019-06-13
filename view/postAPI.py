@@ -28,11 +28,11 @@ def post():
 
 	if request.method == "GET":
 
-		if "userEmail" in session:
+		if "adminEmail" in session:
 
 			all_posts = posts.getAllposts()
 
-			return render_template("post.html",info=session["userEmail"], posts=all_posts)
+			return render_template("post.html",info=session["adminEmail"], posts=all_posts)
 
 		else:
 
@@ -44,11 +44,11 @@ def post():
 
 	if request.method == "POST":
 
-		if "userEmail" in session:
+		if "adminEmail" in session:
 
 			now = time.strftime("%Y-%m-%d %H:%M")
 
-			obj_id = posts.postCreate(dict_merge({"postAuthor":session["userEmail"],"date":now},request.form.to_dict(flat=True)))
+			obj_id = posts.postCreate(dict_merge({"postAuthor":session["adminEmail"],"date":now},request.form.to_dict(flat=True)))
 
 			all_posts = posts.getAllposts()
 
@@ -66,7 +66,7 @@ def post():
 
 def postUpdate():
 
-	if "userEmail" in session:
+	if "adminEmail" in session:
 
 		print(request.form.to_dict(flat=True)["obj_id"])
 
@@ -86,7 +86,7 @@ def postUpdate():
 
 def postRemove():
 
-	if "userEmail" in session:
+	if "adminEmail" in session:
 
 		posts.postDelete(request.form.to_dict(flat=True)["obj_id"])
 
