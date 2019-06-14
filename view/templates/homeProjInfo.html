@@ -8,9 +8,7 @@
          <button type="button" onclick="location.href='/post' ">add</button>
     {% endif %}
     {%for i in projInfo%}
-
     <div id="sub-project">
-        
         <div class="row">
             <div class="col1">
                 {%with a = i.get("image")%}
@@ -34,11 +32,11 @@
                 {{i["description"]}}
                 
                 <form action=./detailed method="POST">
-                    <input type="hidden" name = "idx" value = {{loop.index0}} >
+                    {{i["_id"]}}
+                    <input type="hidden" name = "_id" value = {{i["_id"]}} >
                     <input type = "submit" value="more..">
                 </form><br><br>
             </div>
-            
         </div>
     </div>
     

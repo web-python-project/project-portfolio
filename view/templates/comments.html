@@ -3,11 +3,27 @@
     {% for i in commentInfo %}
     <div>
         아이디: {{i["commentEmail"]}}     날짜 : {{i["date"]}}  추천 : {{i["like"]}}<br>
-        내용: {{i["contents"]}}<br><br>
+        내용: {{i["contents"]}}<br>
+        <form action = "/likeComm" method = "POST" >
+            <input name = "_id" type="hidden" value= {{i["_id"]}} />
+            <input name = "proj_id" type="hidden" value= {{proj_id}} />
+            <input type = "submit" value="like"/>
+        </form>
+        <form action = "/modifyComm" method = "POST" >
+            <input name = "_id" type="hidden" value= {{i["_id"]}} />
+            <input name = "proj_id" type="hidden" value= {{proj_id}} />
+            <input type = "submit" value="modify"/>
+        </form>
+        <form action = "/deleteComm" method = "POST" >
+            <input name = "_id" type="hidden" value= {{i["_id"]}} />
+            <input name = "proj_id" type="hidden" value= {{proj_id}} />
+            <input type = "submit" value="delete"/>
+        </form>
+        <br>
     </div>
     {% endfor %}
     <div>
-        <form action = "/postproj" method = "POST" >
+        <form action = "/postComm" method = "POST" >
             {%if session.userEmail %}
                 Email : <input name = "commentEmail" type="hidden" value={{session.userEmail}}/><br>
                 Password : <input name = "commentPassword" type="hidden" value={{session.userPassword}}/><br>
@@ -18,9 +34,10 @@
                 Email : <input name = "commentEmail" type = "email" placeholder="Email"/><br>
                 Password : <input name = "commentPassword" type = "password" placeholder="Password"/><br>
             {% endif %}
-            {{projIdx}}
             contents : <input name = "contents" type="text" placeholder="contents"/><br>
-            <input name = "projIdx" type="hidden" value= {{projIdx}} /><br>
+            <input name = "proj_id" type="hidden" value= {{proj_id}} /><br>
+            <input name = "like" type="hidden" value= 0 /><br>
+            <input name = "date" type="hidden" value= "2017-01-01" /><br>
             <input type = "submit" value="register"/>
         </form>
     </div>
