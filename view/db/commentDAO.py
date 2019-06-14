@@ -1,4 +1,5 @@
 import pymongo
+from bson.objectid import ObjectId
 
 class Comment():
     def __init__(self,db):
@@ -19,16 +20,17 @@ class Comment():
 
     def commentCreate(self,commentDict):
         try:
-            self.comments.insert_one(commentDict)
+            if commentAuthentication:
+                self.comments.insert_one(commentDict)
             return True
         except:
             return False
 
     def getAllComments(self, ProjIdx):
         try:
-            result = self.comments.find({"projIdx": {"$eq": ProjIdx}})
+            result = self.comments.find({"proj_id": ObjectId(ProjIdx)})
             return result
         except:
             return False
-#삭제권한
 
+#삭제권한

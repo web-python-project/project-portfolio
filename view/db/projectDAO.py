@@ -1,4 +1,5 @@
 import pymongo
+from bson.objectid import ObjectId
 
 class Project():
     def __init__(self,db):
@@ -19,7 +20,7 @@ class Project():
 
     def getOneProject(self,index):
         try:
-            result = self.projects.find({"idx": {"$eq": index}})
+            result = self.projects.find({"_id": ObjectId(index)})
             return result
         except:
             return False
