@@ -29,7 +29,7 @@
         simulator : <a href={{i["simulator"]}} >Click</a><br><br>
         {{i["description"]}}<br><br>
 
-        {% with projIdx = i["_id"] %}
+        {% with proj_id = i["_id"] %}
         <h1>{{proj_id}}</h1>
             {% with commentInfo = commentInfo %}
                 {% include "comments.html" %}
