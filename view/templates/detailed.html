@@ -28,16 +28,12 @@
         simulator : <a href={{i["simulator"]}} >Click</a><br><br>
         {{i["description"]}}<br><br>
 
-        <div id="project-div-comments">
-            <h3>Comments</h3>
-            {% for i in commentInfo %}
-            <div>
-                아이디: {{i["commentEmail"]}}     날짜 : {{i["date"]}}  추천 : {{i["like"]}}<br>
-                내용: {{i["contents"]}}<br>
-                <br>
-            </div>
-            {% endfor %}
-        </div>
+        {% with projIdx = i["idx"] %}
+        <h1>{{projIdx}}</h1>
+            {% with commentInfo = commentInfo %}
+            {% include "comments.html" %}
+            {%endwith%}
+        {%endwith%}
     {% endfor %}
     </div>
     

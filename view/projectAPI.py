@@ -15,3 +15,11 @@ def projDetailed():
         result_pj = proj0.getOneProject(index)
         result_comm = comm0.getAllComments(index)
     return render_template('detailed.html',projInfo=result_pj, commentInfo =result_comm)
+
+@projAPI.route('/postproj', methods=['GET', 'POST'])
+def postproj():
+    if request.method == 'POST':
+        index = int(request.form["projIdx"])
+        result_pj = proj0.getOneProject(index)
+        result_comm = comm0.getAllComments(index)
+        return render_template('detailed.html',projInfo=result_pj, commentInfo =result_comm)

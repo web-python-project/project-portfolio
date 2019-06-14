@@ -1,0 +1,27 @@
+<div id="project-div-comments">
+    <h3>Comments</h3>
+    {% for i in commentInfo %}
+    <div>
+        아이디: {{i["commentEmail"]}}     날짜 : {{i["date"]}}  추천 : {{i["like"]}}<br>
+        내용: {{i["contents"]}}<br><br>
+    </div>
+    {% endfor %}
+    <div>
+        <form action = "/postproj" method = "POST" >
+            {%if session.userEmail %}
+                Email : <input name = "commentEmail" type="hidden" value={{session.userEmail}}/><br>
+                Password : <input name = "commentPassword" type="hidden" value={{session.userPassword}}/><br>
+            {%elif session.adminEmail %}
+                Email : <input name = "commentEmail" type="hidden" value={{session.adminEmail}}/><br>
+                Password : <input name = "commentPassword" type="hidden" value={{session.adminPassword}}/><br>
+            {%else%}
+                Email : <input name = "commentEmail" type = "email" placeholder="Email"/><br>
+                Password : <input name = "commentPassword" type = "password" placeholder="Password"/><br>
+            {% endif %}
+            {{projIdx}}
+            contents : <input name = "contents" type="text" placeholder="contents"/><br>
+            <input name = "projIdx" type="hidden" value= {{projIdx}} /><br>
+            <input type = "submit" value="register"/>
+        </form>
+    </div>
+</div>
