@@ -10,11 +10,11 @@ class Comment():
 #            return
 #        except:
 #            return
-    
-    
+
     def commentCreate(self,commentDict):
         try:
             commentDict["proj_id"] = ObjectId(commentDict["proj_id"])
+            commentDict["like"]= int(commentDict["like"])
             result = self.comments.insert_one(commentDict)
             return result
         except:
