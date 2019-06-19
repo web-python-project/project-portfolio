@@ -1,20 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta charset="utf-8">
-            <title> screendoor - portfolio </title>
-            <link rel="stylesheet" href="static/css/style.css">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel=”stylesheet” href=”http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css“>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+	
+
+        #img_profile{
+            width:150px;
+            height:150px;
+        }
+        .bg-main{
+            background-color: #1abc9c;
+            color:#fff;
+            font-weight: bold;
+            padding-top: 250px;
+            padding-bottom: 250px;
+        }
+        .bg-sub{
+            background-color: #474e5d;
+            color:#fff;
+            padding-top: 70px;
+            padding-bottom: 100px;
+        }
+
+       body{ margin : 0;}
+
+.nav-container{
+display:flex;
+flex-direction: row;
+width:100%;
+margin:0;
+padding:0;
+background-color: darkslategrey;
+list-style-type:none;}
+
+.nav-item{
+padding:15px;
+cursor: pointer;}
+
+.nav-item a {text-align: center; text-decoration: none; color: white;}
+
+.nav-item:hover { background-color:grey;}
+
+.nav-container{position: fixed; top:0;}
+
+header{margin-top: 80px;}
+ 
+    </style>
+
+
+
     </head>
     <body>
-        <nav id="topMenu">
-            <ul class="nav-container">
-                <li class="nav-item"> <a href="home#top">Home </a></li>
-                <li class="nav-item"> <a href="home#first-text">About </a></li>
-                <li class="nav-item"> <a href="home#ski">Skills </a></li>
-                <li class="nav-item"> <a href="home#project-container">Project </a></li>
-                <li class="nav-item"> <a href="home#cont">Contact </a></li>
-                <li class="nav-item">
+       <nav>
+	
+
+
+             <ul class="nav-container">
+
+                <li class="nav-item" > <a href="home#top">Home </a></li>
+                <li  class="nav-item" > <a href="home#first-text">About </a></li>
+                <li  class="nav-item"  > <a href="home#ski">Skills </a></li>
+                <li  class="nav-item"   > <a href="home#project-container">Project </a></li>
+                <li  class="nav-item"  > <a href="home#cont">Contact </a></li>
+                <li  class="nav-item" >
                     {% if session.userEmail or session.adminEmail %}
                     <a href="logout">Logout </a>
                     {% else %}
@@ -24,8 +81,20 @@
             </ul>
         </nav>
         
-        <div style="margin-top:100px;">
+      
+
+
+    <div style="margin-top:100px;">
             {% block content %} {% endblock %} </div>
+<div class="jumbotron text-center mt-5 mb-0">
+        <h3 class="text-secondary">Contact </h3>
+        <p>juuuwon@naver.com <br> 0603yang@naver.com  </p>
+    </div>
+
+
+
+     
+
 
     </body>
 </html>

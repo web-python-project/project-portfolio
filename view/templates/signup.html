@@ -1,8 +1,37 @@
 {% extends "base.html" %}
 {% block  content %}
-    <form action = "./signup" method="POST">
-        <input type = "email" name = "userEmail"/>
-        <input type = "password" name ="userPassword"/>
-	<input type = "submit" value = "회원가입">
-    </form>
+
+<div class="jumbotron">
+  <h1>안녕하세요!</h1>
+<br>
+<br>
+<br>
+  <h2>홈페이지 이용을 위해 회원가입을 해주세요 </h2>
+<br>
+<br>
+<br> 
+
+ <form class="form-horizontal"  action = "./signup" method="POST">
+       
+ <label for="inputEmail3" class="col-sm-2 control-label">User Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="userEmail" placeholder="Email">
+    </div>
+<br>
+<br>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="userPassword" placeholder="Password">
+    </div>
+  </div>
+<br>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">회원가입</button>
+    </div>
+  </div>
+</form> 
+
+</div>
 {% endblock %}

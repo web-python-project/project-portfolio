@@ -1,18 +1,65 @@
 {% extends "base.html" %}
 {% block  content %}
-    <form action=./signin method="POST">
-        일반 계정:
-        <input type ="email" name="userEmail"/>
-        <input type = "password" name="userPassword">
-        <input type = "submit" value="signin">
-    </form>
+    <form class="form-horizontal" action=./signin method="POST">
+        <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">User Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="userEmail"  placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="userPassword" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </div>
+</form>
+    
     <br>
-    <form action=./adminsignin method="POST">
-        관리자 계정:
-        <input type ="email" name="adminEmail"/>
-        <input type = "password" name="adminPassword">
-        <input type = "submit" value="adminsignin">
-    </form>
+    <form class="form-horizontal" action=./adminsignin method="POST">
+         <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Admin Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="adminEmail"  placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="adminPassword" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </div>
+</form>
+       
+    
     <br>
-    아직 회원이 아니신가요? <a href = "signup"> 회원가입 </a>
+   <h3> 아직 회원이 아니신가요? </h3> <a href = "signup"><h3> 회원가입</h3></a>
 {% endblock %}
