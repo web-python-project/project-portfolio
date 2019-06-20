@@ -15,8 +15,18 @@
             <input type = "submit" value="modify"/>
         </form>
         <form action = "/deleteComm" method = "POST" >
-            <input name = "_id" type="hidden" value= {{i["_id"]}} />
-            <input name = "proj_id" type="hidden" value= {{proj_id}} />
+            {%if session.userEmail %}
+                <input name = "commentEmail" type="hidden" value={{session.userEmail}}/>
+                <input name = "commentPassword" type="hidden" value={{session.userPassword}}/>
+            {%elif session.adminEmail %}
+                <input name = "commentEmail" type="hidden" value={{session.adminEmail}}/>
+                <input name = "commentPassword" type="hidden" value={{session.adminPassword}}/>
+            {%else%}
+                Email : <input name = "commentEmail" type = "email" placeholder="Email"/><br>
+                Password : <input name = "commentPassword" type = "password" placeholder="Password"/><br>
+            {% endif %}
+                <input name = "_id" type="hidden" value= {{i["_id"]}} />
+                <input name = "proj_id" type="hidden" value= {{proj_id}} />
             <input type = "submit" value="delete"/>
         </form>
         <br>
@@ -25,11 +35,11 @@
     <div>
         <form action = "/postComm" method = "POST" >
             {%if session.userEmail %}
-                Email : <input name = "commentEmail" type="hidden" value={{session.userEmail}}/><br>
-                Password : <input name = "commentPassword" type="hidden" value={{session.userPassword}}/><br>
+                <input name = "commentEmail" type="hidden" value={{session.userEmail}}/>
+                <input name = "commentPassword" type="hidden" value={{session.userPassword}}/>
             {%elif session.adminEmail %}
-                Email : <input name = "commentEmail" type="hidden" value={{session.adminEmail}}/><br>
-                Password : <input name = "commentPassword" type="hidden" value={{session.adminPassword}}/><br>
+                <input name = "commentEmail" type="hidden" value={{session.adminEmail}}/>
+                <input name = "commentPassword" type="hidden" value={{session.adminPassword}}/>
             {%else%}
                 Email : <input name = "commentEmail" type = "email" placeholder="Email"/><br>
                 Password : <input name = "commentPassword" type = "password" placeholder="Password"/><br>

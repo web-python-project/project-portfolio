@@ -48,12 +48,13 @@ def likeComm():
 @projAPI.route('/deleteComm', methods=['GET', 'POST'])
 def deleteComm():
     if request.method == 'POST':
-        
         #삭제 통신
-        ###########로그인 기능 추가하기
-        res = comm0.deleteComments(request.form["_id"])
-        
+        if comm0.deleteComments(request.form.to_dict(flat='true')):
+            res = comm0.deleteComments(request.form.to_dict(flat='true'))
+        else :
+            res = comm0.deleteComments(request.form.to_dict(flat='true'))
+
         index = request.form["proj_id"]
         result_pj = proj0.getOneProject(index)
         result_comm = comm0.getAllComments(index)
-        return render_template('detailed.html',projInfo=result_pj, commentInfo =result_comm,index=res)
+        return render_template('detailed.html',projInfo=result_pj, commentInfo =result_comm, index=res)
