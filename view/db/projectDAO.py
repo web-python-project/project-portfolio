@@ -24,3 +24,10 @@ class Project():
             return result
         except:
             return False
+
+    def deleteProject(self,projectId):
+        try:
+            result = self.projects.delete_one({"_id": ObjectId(projectId["_id"])})
+            return result
+        except:
+            return False
