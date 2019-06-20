@@ -12,8 +12,14 @@
 </div>
 </div>
     <div id="sub-project">
+
         <div class="container-fluid row mt-5 " style="display:inline-block;text-align:center;">
             <div class="col-md-5" style="float: none; margin:0 auto;">
+                {% if session.adminEmail %}
+                <button type="button" onclick="location.href='/post' ">modify</button>
+                <button type="button" onclick="location.href='/post' ">delete</button>
+                {% endif %}
+              
                 {%with a = i.get("image")%}
                 <img src= {{a[0]}} style=" top:0; left: 0; width: 100%; height: 100%;">
                     {%endwith%}
@@ -34,8 +40,7 @@
                 simulator : <a href={{i["simulator"]}} >Click</a><br><br><br>
                 {{i["description"]}}
                 
-                <form action=./detailed method="POST">
-                    
+                <form action=./detailed method="POST">   
                     <input type="hidden" name = "_id" value = {{i["_id"]}} >
                     <button type = "submit" class="btn btn-primary"> More</button>
                 </form><br><br>
