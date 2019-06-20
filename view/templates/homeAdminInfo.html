@@ -1,50 +1,86 @@
 {% block admin %}
 {%for i in adminInfo%}
-<div class= "zero-div">
-    <header>
-        <div id="header">
-            <div id="content" class="container-max">
-                <h1>Project!</h1>
-                <p> Screendoor Screendoor Screendoor Screendoor Screendoor </p>
-            </div>
-        </div>
-    </header>
-</div>
 
-<div class="first-div" id="first-text">
-    <div class="col1_first_div">
-        <br>
-        <br>
-        <h1> About me </h1>
+    <div class="typer" id="type">
+       <h1 class="typer-text"> Hello</h1>
+           
+       
+      </div> 
+
+
+ <div class="container-fluid text-center bg-main">
+        <p class="h3">About Us</p>
+        <img src="/static/src/smile.jpg" class="rounded-circle" id="img_profile">
+        <p class="h3">Our profile</p>
+    </div>
+    
+    <!-- sub content -->
+    <div class="contaniner-fluid text-center bg-sub">
+        <p class="h3">Screendoor</p>
+        <p>Screendoor는 한국 교통대학교 프로그래밍 동아리이며 해당 페이지는  첫 번째 프로젝트인  페이지만들기 포트폴리오입니다! By 승희 주원   </p>
     </div>
 
-    <div class="col2_first_div">
-        <section>
-            <h1>{{i["position"]}}</h1>
-            <P>{{i["introduce"]}}</P>
-        </section>
-    </div>
-</div>
 
 
-<div class="second-div" id="ski">
-    <br><br>
-    <br><br>
-    <h1>Skills</h1></br>
+
+
+<div class="jumbotron text-center mb-0">
+    
+    <h1 class="Skill">Skils</h1>
     
     {% with language = i["language"]%}
-    <div id="launage">Launage</div></br>
+    <div class="Skill_Content">
+      <h2 class="Skill_Title">Launage</h2>
+        <span class="Skill_Content">
+         <div class="Skill_box">
+
+<div class="Skill_image_container">
+<img src="https://img.icons8.com/color/100/000000/python.png"> </div>
+</span>
+</div>
         {% for skill in language %}
         <b>{{skill[0]}} </b> {{skill[1]}} <br>
         {% endfor %}
     {% endwith %}
     
-    <br>
-    <br>
-    <div id="webskills">Web Skills</div></br>
-    <div id="database">Database</div></br>
-    <div id="etc">Etc</div></br>
+   
+    <h2 class="Skill_Title">Web Skils</h2>
+        <span class="Skill_Content">
+         <div class="Skill_box">
+
+<div class="Skill_image_container">
+<img src="https://img.icons8.com/color/100/000000/bootstrap.png"></div>
+</span>
 </div>
+
+ <h2 class="Skill_Title">Database</h2>
+        <span class="Skill_Content">
+         <div class="Skill_box">
+
+<div class="Skill_image_container">
+<img src="https://img.icons8.com/color/100/000000/mongodb.png"> </div>
+</span>
+</div>
+
+
+
+ <h2 class="Skill_Title">ETC</h2>
+        <span class="Skill_Content">
+         <div class="Skill_box">
+
+<div class="Skill_image_container">
+<img src="/static/src/aws.png" class="rounded-circle" width="100px" height="100px" >
+<img src="/static/src/flask.png" class="rounded-circle"  width="100px" height="100px" > </div>
+</span>
+</div>
+
+
+ 
+</div>
+</div>
+                  
+                        
+					 
 
 {% endfor %}
 {% endblock %}
