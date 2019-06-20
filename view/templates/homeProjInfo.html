@@ -1,6 +1,6 @@
 {% block proj %}
 
-<div class="row"  style="text-align:center;" >
+<div class="row"  style="text-align:center;" id = "project-container" >
  <div class="col-xs-12" style="float: none; margin:0 auto;"> 
     <br>
     <br>
@@ -16,13 +16,19 @@
         <div class="container-fluid row mt-5 " style="display:inline-block;text-align:center;">
             <div class="col-md-5" style="float: none; margin:0 auto;">
                 {% if session.adminEmail %}
-                <button type="button" onclick="location.href='/post' ">modify</button>
-                <button type="button" onclick="location.href='/post' ">delete</button>
+                <form action=./detailed method="POST">
+                    <input type="hidden" name = "_id" value = {{i["_id"]}} >
+                    <button type = "submit" class="btn btn-success" style="float:left; margin-left:15px" >modify</button>
+                </form>
+                <form action=./deleteProj method="POST">
+                    <input type="hidden" name = "_id" value = {{i["_id"]}} >
+                    <button type = "submit" class="btn btn-danger" style="float:left; margin-left:15px">delete</button>
+                </form>
                 {% endif %}
               
                 {%with a = i.get("image")%}
                 <img src= {{a[0]}} style=" top:0; left: 0; width: 100%; height: 100%;">
-                    {%endwith%}
+                {%endwith%}
                     </div>
             
             <div class="col-md-7" style="float: none; margin:0 auto;">

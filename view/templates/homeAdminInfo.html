@@ -3,15 +3,20 @@
 
     <div class="typer" id="type">
        <h1 class="typer-text"> Hello</h1>
-           
        
       </div> 
 
 
- <div class="container-fluid text-center bg-main">
+ <div class="container-fluid text-center bg-main" id="first-text">
         <p class="h3">About Us</p>
+        <br><br>
+
         <img src="/static/src/smile.jpg" class="rounded-circle" id="img_profile">
-        <p class="h3">Our profile</p>
+        <br><br>
+
+        <p class="h3">{{i["position"]}}</p>
+        <P>{{i["introduce"]}}</P>
+
     </div>
     
     <!-- sub content -->
@@ -24,10 +29,11 @@
 
 
 
-<div class="jumbotron text-center mb-0">
+<div class="jumbotron text-center mb-0" id="ski">
     
     <h1 class="Skill">Skils</h1>
-    
+    <br><br>
+
     {% with language = i["language"]%}
     <div class="Skill_Content">
       <h2 class="Skill_Title">Launage</h2>
@@ -43,7 +49,7 @@
         {% endfor %}
     {% endwith %}
     
-   
+    <br><br>
     <h2 class="Skill_Title">Web Skils</h2>
         <span class="Skill_Content">
          <div class="Skill_box">
@@ -53,6 +59,7 @@
 </span>
 </div>
 
+<br><br>
  <h2 class="Skill_Title">Database</h2>
         <span class="Skill_Content">
          <div class="Skill_box">
@@ -63,7 +70,7 @@
 </div>
 
 
-
+<br><br>
  <h2 class="Skill_Title">ETC</h2>
         <span class="Skill_Content">
          <div class="Skill_box">
