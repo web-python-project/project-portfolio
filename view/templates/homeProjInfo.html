@@ -1,26 +1,31 @@
 {% block proj %}
 
-<div class="project-div" id = "project-container">
+<div class="row"  style="text-align:center;" >
+ <div class="col-xs-12" style="float: none; margin:0 auto;"> 
     <br>
     <br>
     <h1>Project</h1>
     {% if session.adminEmail %}
-         <button type="button" onclick="location.href='/post' ">add</button>
+         <button type="button" onclick="location.href='/post' ">  add </button>
     {% endif %}
     {%for i in projInfo%}
+</div>
+</div>
     <div id="sub-project">
-        <div class="row">
-            <div class="col1">
+
+        <div class="container-fluid row mt-5 " style="display:inline-block;text-align:center;">
+            <div class="col-md-5" style="float: none; margin:0 auto;">
                 {% if session.adminEmail %}
                 <button type="button" onclick="location.href='/post' ">modify</button>
                 <button type="button" onclick="location.href='/post' ">delete</button>
                 {% endif %}
+              
                 {%with a = i.get("image")%}
                 <img src= {{a[0]}} style=" top:0; left: 0; width: 100%; height: 100%;">
                     {%endwith%}
                     </div>
             
-            <div class="col2">
+            <div class="col-md-7" style="float: none; margin:0 auto;">
                 <h1>{{i["title"]}}</h1><br><br>
                 
                 <b>개발기간 : </b> {{i["date"]}}<br><br>
@@ -35,9 +40,9 @@
                 simulator : <a href={{i["simulator"]}} >Click</a><br><br><br>
                 {{i["description"]}}
                 
-                <form action=./detailed method="POST">
-                    <input type="hidden" name = "proj_id" value = {{i["_id"]}} >
-                    <input type = "submit" value="more..">
+                <form action=./detailed method="POST">   
+                    <input type="hidden" name = "_id" value = {{i["_id"]}} >
+                    <button type = "submit" class="btn btn-primary"> More</button>
                 </form><br><br>
             </div>
         </div>
