@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="project-div">
-    <div id="sub-project">
+    <div id="sub-project" style="text-align:cneter">
     {% for i in projInfo %}
         <h1>{{i["title"]}} </h1><br>
 
@@ -24,14 +24,15 @@
         {%endwith%}<br><br>
         깃허브 링크 : <a href={{i["gitLink"]}} >Click</a><br>
         simulator : <a href={{i["simulator"]}} >Click</a><br><br>
-        {{i["description"]}}<br><br>
-
+        {{i["description"]}}<br><br> 
+       
+        
         {% with proj_id = i["_id"] %}
             {% with commentInfo = commentInfo %}
                 {% include "comments.html" %}
             {%endwith%}
         {%endwith%}
-    {% endfor %}
+       {% endfor %}
     </div>
     
     <br>
