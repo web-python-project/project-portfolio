@@ -1,11 +1,9 @@
 <div id="project-div-comments">
     <h3>Comments</h3>
-    
-
- 
 
 {% for i in commentInfo %}
-    
+<h1>{{i["title"]}} </h1><br>
+
 <div class="jumbotron">
 <div>
         아이디: {{i["commentEmail"]}}     날짜 : {{i["date"]}}  추천 : {{i["like"]}}<br>
@@ -21,9 +19,30 @@
             <button type = "submit" class="btn btn-success" style="float:left; margin-left:15px">Modify</button>
         </form>
         <form action = "/deleteComm" method = "POST" >
+            {%if session.userEmail %}
+                <input name = "commentEmail" type="hidden" value={{session.userEmail}}/>
+                
+                {% if session.userEmail == i["commentEmail"] %}
+                <button type = "submit" class="btn btn-danger" style="float:left;  margin-left:15px"> Delete</button>
+                {% endif %}
+                
+            {%elif session.adminEmail %}
+                <input name = "commentEmail" type="hidden" value={{session.adminEmail}}/>
+            
+                {% if session.adminEmail == i["commentEmail"] %}
+                <button type = "submit" class="btn btn-danger" style="float:left;  margin-left:15px"> Delete</button>
+                {% endif %}
+                
+            {%else%}
+            <br>
+            <br>
+                Email : <input name = "commentEmail" type = "email" placeholder="Email"/><br>
+                Password : <input name = "commentPassword" type = "password" placeholder="Password"/><br>
+                <button type = "submit" class="btn btn-danger" style="float:left;  margin-left:15px"> Delete</button>
+                
+            {% endif%}
             <input name = "_id" type="hidden" value= {{i["_id"]}} />
             <input name = "proj_id" type="hidden" value= {{proj_id}} />
-            <button type = "submit" class="btn btn-danger" style="float:left;  margin-left:15px"> Delete</button>
         </form>
         <br>
     </div>
@@ -33,46 +52,45 @@
         <form class="form-inline" action = "/postComm" method = "POST" >
           
          
-{%if session.userEmail %}
- <div class="form-group"  style="margin-left:10px" >
- <label class="sr-only" for="exampleInputEmail3">Email address</label>
-
-               <input name = "commentEmail" type="hidden" value={{session.userEmail}}/><br></div>
-<div class="form-group"  style="margin-left:10px" >
-    <label class="sr-only" for="exampleInputPassword3">Password</label>
+        {%if session.userEmail %}
+                <div class="form-group"  style="margin-left:10px" >
+                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                <input name = "commentEmail" type="hidden" value={{session.userEmail}}/><br></div>
                 
- <input class="sr-only"name = "commentPassword" type="hidden" value={{session.userPassword}}/><br></div>
-            {%elif session.adminEmail %}
-<div class="form-group"  style="margin-left:10px" >
- <label class="sr-only" for="exampleInputEmail3">Email address</label>
-
-               <input class="form-control"  name = "commentEmail" type="hidden" value={{session.adminEmail}}/><br></div>
-
-<div class="form-group"  style="margin-left:10px" >
-    <label class="sr-only" for="exampleInputPassword3">Password</label>
+                <div class="form-group"  style="margin-left:10px" >
+                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                <input class="sr-only"name = "commentPassword" type="hidden" value={{session.userPassword}}/><br></div>
                 
-<input class="form-control" name = "commentPassword" type="hidden" value={{session.adminPassword}}/><br></div>
-            {%else%}
+        {%elif session.adminEmail %}
+                <div class="form-group"  style="margin-left:10px" >
+                <label class="sr-only" for="exampleInputEmail3">Email address</label>
 
-<div class="form-group" style="margin-left:10px" >
- <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                <input class="form-control"  name = "commentEmail" type="hidden" value={{session.adminEmail}}/><br></div>
 
+                <div class="form-group"  style="margin-left:10px" >
+                <label class="sr-only" for="exampleInputPassword3">Password</label>
 
-                Email : <input class="form-control" name = "commentEmail" type = "email" placeholder="Email"/><br></div>
-<div class="form-group" style="margin-left:10px" >
-    <label class="sr-only" for="exampleInputPassword3">Password</label>
-               
- Password : <input class="form-control"name = "commentPassword" type = "password" placeholder="Password"/><br></div>
-            {% endif %}
+                <input class="form-control" name = "commentPassword" type="hidden" value={{session.adminPassword}}/><br></div>
+        {%else%}
+                <div class="form-group" style="margin-left:10px" >
+                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                    Email : <input class="form-control" name = "commentEmail" type = "email" placeholder="Email"/><br></div>
 
-<div class="form-group" style="margin-left:10px">
-    <label class="sr-only" for="exampleInputPassword3">Contents</label>
-
+                <div class="form-group" style="margin-left:10px" >
+                    <label class="sr-only" for="exampleInputPassword3">Password</label>
+                     Password : <input class="form-control"name = "commentPassword" type = "password" placeholder="Password"/><br></div>
+        {% endif %}
+        
+        <br>
+        <div class="form-group" style="margin-left:10px">
+            <label class="sr-only" for="exampleInputPassword3">Contents</label>
             contents : <textarea class = "form-control" rows="3" name="contents" placeholder="contents"></textarea><br></div>
+        
             <input name = "proj_id" type="hidden" value= {{proj_id}} /><br>
             <input name = "like" type="hidden" value= 0 /><br>
+
             <input name = "date" type="hidden" value= "2017-01-01" /><br>
-            <button type = "submit" class="btn btn-info"  style="margin-left:15px" >register</button>
+            <button type = "submit" class="btn btn-info"  style="margin-left:15px">register</button>
         </form>
     </div>
 
